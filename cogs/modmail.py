@@ -45,8 +45,8 @@ class Modmail(commands.Cog):
             return await ctx.send(f"You can only setup in the Modmail guild: {self.bot.modmail_guild}.")
 
         if self.bot.main_category is not None:
-            logger.debug("Can't re-setup server, main_category is found.")
-            return await ctx.send(f"{self.bot.modmail_guild} is already set up.")
+            logger.debug("Can't re-setup server, main_category is found. ")
+            return await ctx.send(f"{self.bot.modmail_guild} is already set up. Whoever tried to run this command is going to be in trouble. Dumb ass >:)")
 
         if self.bot.modmail_guild is None:
             embed = discord.Embed(
@@ -94,8 +94,8 @@ class Modmail(commands.Cog):
         embed.add_field(
             name="Thanks for using our bot!",
             value="If you like what you see, consider giving the "
-            "[repo a star](https://github.com/kyb3r/modmail) :star: and if you are "
-            "feeling extra generous, buy us coffee on [Patreon](https://patreon.com/kyber) :heart:!",
+            "owner (iiOliverii_DEV) some money"
+            "feeling extra generous, give him a blowjob:)",
         )
 
         embed.set_footer(text=f'Type "{self.bot.prefix}help" for a complete list of commands.')
@@ -385,6 +385,8 @@ class Modmail(commands.Cog):
 
         Stop a thread from closing:
         - `{prefix}close cancel`
+        
+        --ABUSE WILL RESULT IN A REMOVAL OF ALL ADMINISTRATIVE AND MODERATIVE PERMISSIONS--
         """
 
         thread = ctx.thread
@@ -438,7 +440,9 @@ class Modmail(commands.Cog):
 
         Leave `user_or_role` empty to notify yourself.
         `@here` and `@everyone` can be substituted with `here` and `everyone`.
-        `user_or_role` may be a user ID, mention, name. role ID, mention, name, "everyone", or "here".
+        `user_or_role` may be a user ID, mention, name. role ID, mention, name, "everyone", or "here".  
+        
+        --ABUSE WILL RESULT IN A REMOVAL OF ALL ADMINISTRATIVE AND MODERATIVE PERMISSIONS--
         """
         mention = self.parse_user_or_role(ctx, user_or_role)
         if mention is None:
@@ -475,6 +479,8 @@ class Modmail(commands.Cog):
         Leave `user_or_role` empty to un-notify yourself.
         `@here` and `@everyone` can be substituted with `here` and `everyone`.
         `user_or_role` may be a user ID, mention, name, role ID, mention, name, "everyone", or "here".
+        
+        --ABUSE WILL RESULT IN A REMOVAL OF ALL ADMINISTRATIVE AND MODERATIVE PERMISSIONS--
         """
         mention = self.parse_user_or_role(ctx, user_or_role)
         if mention is None:
@@ -512,6 +518,8 @@ class Modmail(commands.Cog):
         Leave `user_or_role` empty to subscribe yourself.
         `@here` and `@everyone` can be substituted with `here` and `everyone`.
         `user_or_role` may be a user ID, mention, name, role ID, mention, name, "everyone", or "here".
+        
+        --ABUSE WILL RESULT IN A REMOVAL OF ALL ADMINISTRATIVE AND MODERATIVE PERMISSIONS--
         """
         mention = self.parse_user_or_role(ctx, user_or_role)
         if mention is None:
@@ -548,6 +556,8 @@ class Modmail(commands.Cog):
         Leave `user_or_role` empty to unsubscribe yourself.
         `@here` and `@everyone` can be substituted with `here` and `everyone`.
         `user_or_role` may be a user ID, mention, name, role ID, mention, name, "everyone", or "here".
+        
+        --ABUSE WILL RESULT IN A REMOVAL OF ALL ADMINISTRATIVE AND MODERATIVE PERMISSIONS--
         """
         mention = self.parse_user_or_role(ctx, user_or_role)
         if mention is None:
@@ -578,7 +588,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.SUPPORTER)
     @checks.thread_only()
     async def nsfw(self, ctx):
-        """Flags a Modmail thread as NSFW (not safe for work)."""
+        """Flags a Modmail thread as NSFW (not safe for work). Must be granted permission by: iiOliverii_DEV"""
         await ctx.channel.edit(nsfw=True)
         sent_emoji, _ = await self.bot.retrieve_emoji()
         await self.bot.add_reaction(ctx.message, sent_emoji)
@@ -680,6 +690,8 @@ class Modmail(commands.Cog):
         Leave `user` blank when this command is used within a
         thread channel to show logs for the current recipient.
         `user` may be a user ID, mention, or name.
+        
+        --Permission must be granted by iiOliverii_DEV--
         """
 
         await ctx.trigger_typing()
